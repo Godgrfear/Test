@@ -1,0 +1,412 @@
+body{
+  background-color:lightblue;
+}
+
+  *{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .Section_Container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:stretch;
+    position: relative;
+  }
+
+  .Section_Itself img{
+    height: 850px;
+    width: 1000px; /* Set width to auto to maintain aspect ratio */
+    max-width: 100%;
+    flex: 1;
+  }
+
+  .Section_Itself h1{
+    border-left: 6px solid black;
+    font-size:30px;
+    font-family: "Agbalumo", system-ui;
+    font-weight: 400;
+    font-style: italic;
+    color:#FA6402;
+    position: absolute;
+    bottom: 30px; /* Adjust based on your preference */
+    left: 20px; /* Adjust based on your preference */
+  }
+
+  /*
+  .slider-wrapper{
+    overflow: hidden;
+    max-width: 100%;
+    margin: 0 70px 55px;
+  }
+  */
+  .header{
+    max-height:120vh;
+    width: 100%;
+  }
+  
+  nav{
+    display: flex;
+    padding-left:12%;
+    padding-right: 12%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    justify-content: space-between; 
+    align-items: center;
+  }
+
+  nav img{
+    height: 60px;
+  }
+
+  nav img:hover{
+      opacity: 0.5;
+  }
+
+
+/*Συμπεριφορά των link*/
+  .Navigation-Links{
+    flex: 1;
+    text-align: right;
+  }
+  
+  .Navigation-Links ul li{
+    list-style: none; /*Αφαιρώ το style της λίστας (αφαιρεί τις κουκίδες) */
+    display:inline-block;/*Όλα τα στοιχεία του nav θα πάνε οριζόντια, δηλαδή στην ίδια γραμμή*/
+    padding: 8px 12px;/*Σε όλο το μήκος του τετραγώνου*/
+    position: relative;
+  }
+  
+  .Navigation-Links ul li a{
+    font-family: "Noto Sans Mono", monospace;
+    font-size:14px;
+    color:#fff;/*Το χρώμα των γραμμάτων*/
+    text-decoration: none;/*Δεν θα έχει γραμμές από κάτω το link*/
+  }
+  
+
+  .Navigation-Links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: aqua;
+    display: block;
+    margin: auto ;
+    transition: 0.5s;
+  }
+  
+  .Navigation-Links ul li:hover::after{
+    width: 100%;
+  }
+
+/*DropDown Effecr*/
+  .Navigation-Links ul li ul.DropDown li{
+    display: block;
+  }
+
+  .Navigation-Links ul li ul.DropDown{
+    width: 100%;
+    background-color: transparent;
+    position: absolute;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 1.0s ease;
+  }
+
+  .Navigation-Links ul li:hover ul.DropDown{
+    opacity: 1;
+  }
+
+  
+  .ProductCategorie_Container {
+    padding-top: 5vh;
+    padding-left: 12%;
+    padding-right: 12%;
+    padding-bottom: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .ProductCategorie_Box {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Ensures image and description are stacked vertically */
+    justify-content: center; /* Ensures content is centered vertically */
+    margin: 5px;
+    width: 400px;
+    transition: 0.3s ease-in-out;
+  }
+
+  .ProductCategorie_Box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the image covers the width properly */
+  }
+  .ProductCategorie_Description{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background-color:white;
+    overflow: hidden;
+    width: 100%;
+    transition: 0.5s ease;
+  }
+  .ProductCategorie_Description a{
+    text-decoration: none;
+    position: absolute;
+    font-size: 22px;
+    font-family: "Noto Sans Mono", monospace;
+    font-weight: 600;
+    color:black;
+    margin-left: 15px;
+    margin-top: 10%;
+    padding-left: 1px;
+    border-left: 4px solid black;
+    line-height: 1.5;
+  }
+  .ProductCategorie_Box:hover .ProductCategorie_Description{
+    height: 130px;
+  }
+  .ProductCategorie_Description a:hover{
+    color:#FA6402;
+  }
+
+  /*Our Beds Gallery*/ 
+  /*Beds.html*/
+  .ShowRoum_Container{
+    padding-top: 5vh;
+    padding-left: 24%;
+    padding-right: 24%;
+    padding-bottom: 3vh;
+  }
+
+  .ShowRoum_Gallery{
+    display: inline-block;
+    margin : 5px;
+    width:300px;
+    border: 2px solid black;
+    transition: 0.3s ease-in-out;
+  }
+  .ShowRoum_Container .ShowRoum_Gallery .ShowRoum_Description{
+    padding: 10px;
+    text-align: center;
+  }
+
+  .ShowRoum_Gallery img{
+    width:100%;
+    height: 190px;
+  }
+
+  .ShowRoum_Container .ShowRoum_Gallery:hover{
+    transform: scale(1.1);
+  }
+
+/*Beds Gallery pages*/
+.Button_Container{
+  padding-top: 10px;
+  text-align: left;
+}
+
+.Button_Container .Button_Visual{
+  padding-left: 4px;
+  padding-right: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "Noto Sans Mono", monospace;
+  background-color: transparent;
+  border-radius: 20px;
+  color:green;
+  border: 2px solid;
+}
+
+.ShowRoum_Container .Button:hover{
+  color:blue;
+  opacity: 0.7;
+  justify-content: center;
+}
+
+/*Our Inform*/
+.Information_Container{
+  padding-top: 5vh;
+  display: flex;
+  gap: 5em;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.Information_Container .Information{
+  max-width: 600px;
+  display: block;
+}
+
+.Information_Container .Information h1{
+
+  font-family: "Noto Sans Mono", monospace;
+  color:#fff;/*Το χρώμα των γραμμάτων*/
+
+}
+
+.Information_Container .Information p{
+
+  font-family: "Noto Sans Mono", monospace;
+  color:#fff;/*Το χρώμα των γραμμάτων*/
+  font-size: 12px;
+
+}
+
+.Information_Container iframe{
+  
+  border-radius: 10px;
+  width: 500px;
+  height: 500px;
+  opacity: 0.7;
+  transition: 0.3s ease-in-out;
+}
+
+.Information_Container iframe:hover{
+  opacity: 1.0;
+  transform: scale(1.1);
+}
+
+/*Socials*/
+
+.socials{
+  margin-left: 3.5%;
+  margin-right: 3.5%;
+  padding-top: 10px;
+  position: absolute;
+  max-width: 100%;
+  justify-content: space-between;
+}
+
+.socials a{ 
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid green;
+  border-radius: 50%;
+  font-size: 25px;
+  color: green;
+  text-decoration: none;
+  margin: 5px;
+  transition: 0.5s;
+
+}
+
+.socials a:hover{ 
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.socials a:active{ 
+  opacity: 1.0;
+}
+
+/*Extra Information on Beds*/
+.Extra_Information_Container{
+  padding-top: 5vh;
+  padding-left: 24%;
+  padding-right: 24%;
+  padding-bottom: 5vh;
+
+  display: flex;
+  flex-direction: row; /* Ensures elements are aligned horizontally */
+  gap:5em;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#Zoom_Image{
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0; /* Prevent shrinking of the image container */
+}
+
+#Zoom_Image img{
+  width: 570px;
+  height: 400px;
+  /*
+  object-fit: cover;
+  object-position: 0 0;
+  */
+}
+
+#Zoom_Image::after {
+  display: var(--display);
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-image: var(--url);
+  background-size: 200%;
+  background-position: var(--zoom-x) var(--zoom-y);
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none; /*Prevent interaction with the zoomed image*/
+}
+
+/*
+#Zoom_ImageAccesories{
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0; /* Prevent shrinking of the image container 
+}
+
+#Zoom_ImageAccesories img{
+  width: 400px;
+  height: auto;
+  /*
+  object-fit: cover;
+  object-position: 0 0;
+
+}
+
+#Zoom_ImageAccesories::after {
+  display: var(--display);
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-image: var(--url);
+  background-size: 110%;
+  background-position: var(--zoom-x) var(--zoom-y);
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none; /* Prevent interaction with the zoomed image
+  */
+  .Extra_Information_Container .Extra_Information_Description{
+    flex-grow: 1;
+  }
+
+
+.Extra_Information_Container .Extra_Information_Description h1{
+  color: black;
+  font-size: 40px;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.Extra_Information_Container .Extra_Information_Description p{
+  color: black;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.Extra_Information_Description .Lower_Text{
+  font-size: 30px;
+  font-weight:200;
+}
