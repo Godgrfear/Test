@@ -1,5 +1,5 @@
 
-let Zoom_Image = document.getElementById('Zoom_Image');
+let Zoom_Image = document.getElementsByClassName('Zoom_Image');
 
 Zoom_Image.addEventListener('mousemove', (event) => {
     Zoom_Image.style.setProperty('--display', 'block');
