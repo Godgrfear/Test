@@ -328,13 +328,13 @@ body{
 }
 
 
-.Zoom_Image{
+#Zoom_Image{
   position: relative;
   overflow: hidden;
   flex-shrink: 0; /* Prevent shrinking of the image container */
 }
 
-.Zoom_Image img{
+#Zoom_Image img{
   width: 570px;
   height: 400px;
   /*
@@ -343,7 +343,7 @@ body{
   */
 }
 
-.Zoom_Image::after {
+#Zoom_Image::after {
   display: var(--display);
   content: '';
   width: 100%;
