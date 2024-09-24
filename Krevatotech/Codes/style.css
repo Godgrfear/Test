@@ -216,8 +216,8 @@ nav img:hover{
 
 @media(max-width:800px){
 .Section_Itself img{
-  height: 900px;
-  width: 800px;
+  height: 725px;
+  width: 1000px;
   max-width: 100%;
   flex: 1;
 }
