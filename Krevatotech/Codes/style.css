@@ -333,6 +333,21 @@ nav img:hover{
     transform: scale(1.1);
   }
 
+@media(max-width:800px){
+  
+  .ShowRoum_Container{
+    padding-top: 5vh;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 5vh;
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+    overflow-x: hidden;
+  }
+
+}
+
 /*Beds Gallery pages*/
 .Button_Container{
   padding-top:14px ;
@@ -747,7 +762,7 @@ nav img:hover{
   }
 
   #Zoom_Image img {
-    width: 100%;
+    width: 70%;
     height: auto; 
     text-align: left;
     border: 4px solid black;
