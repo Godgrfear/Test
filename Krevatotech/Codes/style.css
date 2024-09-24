@@ -333,12 +333,27 @@ nav img:hover{
     transform: scale(1.1);
   }
 
-@media(max-width:800px){
+@media(max-width:1250px){
   
   .ShowRoum_Container{
     padding-top: 5vh;
     padding-left: 2%;
     padding-right: 2%;
+    padding-bottom: 5vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+}
+
+@media(max-width:300px){
+  
+  .ShowRoum_Container{
+    padding-top: 5vh;
+    padding-left: 1%;
+    padding-right: 1%;
     padding-bottom: 5vh;
     text-align: left;
     justify-content: left;
@@ -346,6 +361,9 @@ nav img:hover{
     overflow-x: hidden;
   }
 
+  .ShowRoum_Gallery{
+    width:100%;
+  }
 }
 
 /*Beds Gallery pages*/
