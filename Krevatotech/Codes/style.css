@@ -1,0 +1,790 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: burlywood;
+  border: 4px solid red;
+  overflow-x:hidden;
+}
+
+nav{
+  display: flex;
+  padding-left:12%;
+  padding-right: 12%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  justify-content:space-between; 
+  align-items: center;
+}
+
+nav img{
+  height: 60px;
+}
+
+nav img:hover{
+    opacity: 0.5;
+}
+
+.Myheader{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/*Συμπεριφορά των link*/
+.Navigation-Links{
+  flex: 1;
+  text-align: right;
+  border: 5px solid black;
+  background-color:cadetblue; 
+}
+
+.Navigation-Links ul li{
+  list-style: none;
+  display:inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.Navigation-Links ul li a{
+  font-family: "Noto Sans Mono", monospace;
+  font-size:14px;
+  color:black;
+  text-decoration: none;
+}
+
+
+.Navigation-Links a {
+  transition: color 0.5s ease-in-out;
+}
+
+.Navigation-Links a:hover,
+.Navigation-Links li:hover > a { 
+  color: #FA6402; 
+}
+
+
+/* Dropdown container */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color:rgba(255,255,255,0.6);
+  box-shadow: 0 18px 8px rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+  width: 430px; 
+  height: auto;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Category headings */
+.dropdown-menu h2{
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 2.4px solid cadetblue;
+  border-radius: 5px;
+  padding-bottom: 4px;
+}
+
+.dropdown-menu li{
+  margin-bottom: 6px;
+}
+
+.dropdown-menu > li {
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.Phone_Navigation{
+  display: none;
+}
+
+.Phone_Navigation li{
+  text-align: left;
+}
+
+.Hamburger_Toggle{
+  display: none;
+  align-items: center;
+}
+
+@media(max-width:1000px){
+
+  nav img{
+    width:120px;
+    height: auto;
+  }
+
+  nav img:hover{
+    opacity: 0.5;
+  }
+
+
+  .Dekstop_Nav{
+    display: none;
+  }
+
+  .Phone_Navigation{
+      display: flex;
+      position: fixed;
+      flex-direction: column;
+      inset: 0 0 0 60%;
+      padding:min(20vh,5.5rem) 1rem;
+      background-color:hsl(0 0% 100% / 0.3);
+      backdrop-filter: blur(1rem);
+      z-index: 1000;
+      gap: 1rem;
+      transform: translateX(100%);
+      transition:transform 1s ease-in;
+    }
+
+    .Phone_Navigation[data-visible = "true"]{
+      transform: translateX(0%);
+    }
+    
+    .Hamburger_Toggle{
+      display: block;
+      font-size: 22px;
+      color: black;
+      align-items: center;
+      z-index: 9999;
+    }
+  }
+
+  @media(max-width:600px){
+    .Phone_Navigation{
+    inset: 0 0 0 45%;
+  }
+}
+
+  @media(max-width:300px){
+    .Phone_Navigation{
+    inset: 0 0 0 30%;
+  }
+}
+
+.Section_Container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:stretch;
+  position: relative;
+}
+
+.Section_Itself img{
+  height: 900px;
+  width: 1000px; /* Set width to auto to maintain aspect ratio */
+  max-width: 100%;
+  flex: 1;
+}
+
+.Section_Itself h1{
+  font-size:30px;
+  font-family: "Agbalumo", system-ui;
+  font-weight: 400;
+  font-style: italic;
+  color:#FA6402;
+  position: absolute;
+  bottom: 30px; /* Adjust based on your preference */
+  left: 20px; /* Adjust based on your preference */
+  border-left:6px solid black ;
+  margin-left: 10%;
+}
+/*
+.slider-wrapper{
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0 70px 55px;
+}
+*/
+
+  .ProductCategorie_Container {
+    padding-top: 5vh;
+    padding-left: 12%;
+    padding-right: 12%;
+    padding-bottom: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .ProductCategorie_Box {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Ensures image and description are stacked vertically */
+    justify-content: center; /* Ensures content is centered vertically */
+    margin: 5px;
+    width: 400px;
+    transition: 0.3s ease-in-out;
+  }
+
+  .ProductCategorie_Box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the image covers the width properly */
+  }
+  .ProductCategorie_Description{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background-color:white;
+    overflow: hidden;
+    width: 100%;
+    transition: 0.5s ease;
+  }
+  .ProductCategorie_Description a{
+    text-decoration: none;
+    position: absolute;
+    font-size: 22px;
+    font-family: "Noto Sans Mono", monospace;
+    font-weight: 600;
+    color:black;
+    margin-left: 15px;
+    margin-top: 10%;
+    padding-left: 1px;
+    border-left: 4px solid black;
+    line-height: 1.5;
+  }
+  .ProductCategorie_Box:hover .ProductCategorie_Description{
+    height: 130px;
+  }
+  .ProductCategorie_Description a:hover{
+    color:#FA6402;
+  }
+
+
+  .Draw_lines h1 {
+    font-family: "Noto Sans Mono", monospace;
+    font-size: 35px;
+    font-weight: 400;
+    color: black;
+    padding-top: 15px;
+    text-align: center;
+    position: relative;
+  }
+
+  /*Our Beds Gallery*/ 
+  /*Beds.html*/
+  .ShowRoum_Container{
+    padding-top: 5vh;
+    padding-left: 24%;
+    padding-right: 24%;
+    padding-bottom: 3vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  .ShowRoum_Gallery{
+    display: inline-block;
+    margin : 5px;
+    width:300px;
+    background-color:rgba(255,255,255,0.6);
+    box-shadow: 0 18px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 15px; 
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: 0.3s ease-in-out;
+  }
+  .ShowRoum_Container .ShowRoum_Gallery .ShowRoum_Description{
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+  }
+
+  .ShowRoum_Gallery img{
+    width:100%;
+    height: 190px;
+    border-radius: 15px;
+    border-bottom: 2px solid black;
+    box-shadow: 0 12px 8px rgba(0, 0, 0, 0.3);
+
+  }
+
+  .ShowRoum_Container .ShowRoum_Gallery:hover{
+    transform: scale(1.1);
+  }
+
+/*Beds Gallery pages*/
+.Button_Container{
+  padding-top:14px ;
+  box-sizing: border-box;
+}
+
+.Button_Container .Button_Visual{
+  padding-left: 4px;
+  padding-right: 4px;
+  text-decoration: none;
+  font-size: 20px;
+  color:black;
+  border: 2px solid rgba(255,255,255,0.6);
+  background-color: rgba(255,255,255,0.3);
+}
+
+.ShowRoum_Container .Button:hover{
+  color:blue;
+  opacity: 0.7;
+  justify-content: center;
+}
+
+/*Λίστα με Διαστάσεις*/
+
+.Available_Sizes{
+  padding-top: 10px;
+}
+.Available_Sizes ul{
+  padding-bottom: 20vh;
+}
+.Available_Sizes li{
+  padding: 2px;
+  box-shadow:0px 4px 4px rgba(0, 0, 0, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  list-style: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 200;
+  border-radius: 10px;
+  margin: 4px;
+
+}
+
+.Available_Sizes li:hover{
+  background-color: #FA6402;
+}
+
+/*Our Inform*/
+.Information_Container{
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  display: flex;
+  gap: 5em;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+
+}
+
+.Information_Container .Information{
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  border: 4px solid red;
+}
+
+.Information_Container .Information h1{
+
+  font-family: "Noto Sans Mono", monospace;
+  color:#fff;/*Το χρώμα των γραμμάτων*/
+
+}
+
+.Information_Container .Information p{
+
+  font-family: "Noto Sans Mono", monospace;
+  color:#fff;/*Το χρώμα των γραμμάτων*/
+  font-size: 12px;
+
+}
+
+.Information_Container iframe{
+  
+  border-radius: 10px;
+  width: 500px;
+  height: 500px;
+  opacity: 0.7;
+  transition: 0.3s ease-in-out;
+}
+
+.Information_Container iframe:hover{
+  opacity: 1.0;
+  transform: scale(1.1);
+}
+
+/*Socials*/
+
+.Information .socials{
+  border: 4px solid black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  max-width: auto;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.Information .socials a{ 
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid green;
+  border-radius: 50%;
+  font-size: 25px;
+  color: green;
+  text-decoration: none;
+  margin: 5px;
+  transition: 0.5s;
+
+}
+
+.Information .socials a:hover{ 
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.Information .socials a:active{ 
+  opacity: 1.0;
+}
+
+@media(max-width:1100px) {
+.Information_Container{
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  justify-content:left;
+  align-items: left;
+  text-align: left;
+  overflow-x: hidden;
+}
+
+.Information_Container iframe{
+  
+  border-radius: 10px;
+  width: 100%;
+  height: 600px;
+  opacity: 0.7;
+  transition: 0.3s ease-in-out;
+}
+
+.Information_Container iframe:hover{
+  opacity: 1.0;
+  transform: scale(1.1);
+}
+
+}
+
+/*Extra Information on Beds*/
+.Extra_Information_Container{
+  padding-top: 5vh;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-bottom: 8vh;
+
+  display: flex;
+  flex-direction: row; /* Ensures elements are aligned horizontally */
+  gap:5em;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+#Zoom_Image{
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0; /* Prevent shrinking of the image container */
+}
+
+#Zoom_Image img{
+  width: 570px;
+  height: 400px;
+}
+
+#Zoom_Image::after {
+  display: var(--display);
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: var(--url);
+  background-size: 200%;
+  background-position: var(--zoom-x) var(--zoom-y);
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none; /*Prevent interaction with the zoomed image*/
+}
+
+  .Extra_Information_Container .Extra_Information_Description{
+    flex-grow: 1;
+    border: 4px solid black;
+  }
+
+
+.Extra_Information_Container .Extra_Information_Description h1{
+  color: black;
+  font-size: 40px;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.Extra_Information_Container .Extra_Information_Description p{
+  color: black;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.Extra_Information_Description .Lower_Text{
+  font-size: 32px;
+  font-weight:200;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #24262b;
+  padding: 50px 0;
+  max-height: auto;
+}
+
+.footer img {
+  width: 220px;
+  height: auto;
+}
+
+.footer img:hover {
+  opacity: 0.5;
+}
+
+.Footer_Container {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.Every_Row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Every_Collum {
+  width: 25%;
+  padding:0 30px;
+}
+
+.Every_Collum h4 {
+  font-size: 20px;
+  color: #bbbbbb;
+  margin-bottom: 25px;
+  font-weight: 400;
+  position: relative;
+  display: inline-block; /* Make the h4 only take the space of its content */
+}
+
+.Every_Collum h4::before {
+  background: cadetblue;
+  width: 100%;
+  content: '';
+  height: 2px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+
+.Every_Collum ul li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.Every_Collum ul li a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #bbbbbb;
+  position: relative;
+  display: inline-block;
+}
+
+.Every_Collum ul li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: cadetblue;
+  display: block;
+  transition: width 0.5s ease-in-out;
+}
+
+.Every_Collum ul li a:hover::after {
+  width: 100%;
+}
+
+.Every_Collum p {
+  font-size: 16px;
+  color: #bbbbbb;
+}
+
+.Every_Collum .Footer_Socials a {
+  font-size: 18px;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffff;
+  transition: all 0.5s ease;
+}
+
+.Every_Collum .Footer_Socials a:hover {
+  color: #24262b;
+  background-color: #ffff;
+}
+
+/* Responsive Layout for footer*/
+@media(max-width: 1200px) {
+  .Every_Collum {
+    flex: 1 1 40%; /* Adjust to two columns on medium-sized screens */
+    margin-bottom: 30px;
+  }
+}
+
+@media(max-width: 767px) {
+  .footer img {
+    width: 170px;
+    height: auto;
+  }
+
+  .Every_Collum {
+    flex: 1 1 50%; /* Switch to two columns on smaller screens */
+    margin-bottom: 30px;
+  }
+}
+
+@media(max-width: 574px) {
+  .footer img {
+    width: 140px;
+    height: auto;
+  }
+
+  .Every_Collum {
+    flex: 1 1 100%; /* Switch to one column on very small screens */
+    margin-bottom: 30px;
+  }
+
+  .Footer_Container {
+    padding: 0 10px; /* Ensure padding on very small screens */
+  }
+}
+
+/*
+
+@media(max-width:700px){
+  .Extra_Information_Container{
+  display: flex;
+  flex-direction: column; 
+  gap:0.5rem;
+  justify-content: flex-start;
+  align-items: flex-start; 
+  text-align: left;
+  padding-left: 3%;
+  padding-right: 3%;
+  border: 4px solid black;
+
+}
+
+#Zoom_Image img{
+  width: 320px;
+  height: auto;
+  text-align: left;
+  border: 4px solid black;
+}
+
+.Extra_Information_Description .Lower_Text{
+  font-size: 26px;
+  font-weight:400;
+}
+
+}
+*/
+@media (max-width: 900px) {
+  .Extra_Information_Container {
+    width: 100%;
+    padding: 1rem; 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 4px solid black;
+    box-sizing: border-box; 
+    overflow-x: hidden; 
+  }
+
+  #Zoom_Image {
+    width: 100%; 
+    overflow: hidden; 
+    flex-shrink: 0; 
+  }
+
+  #Zoom_Image img {
+    width: 100%;
+    height: auto; 
+    text-align: left;
+    border: 4px solid black;
+  }
+
+  .Extra_Information_Description {
+    width: 100%;
+    margin: 0; 
+  }
+
+  .Extra_Information_Description .Lower_Text {
+    font-size: 26px;
+    font-weight: 400;
+  }
+}
+
+
+/*
+@media(min-width:1100px){
+  .Extra_Information_Container {
+    width: 100%; 
+    padding: 2rem; 
+    gap: 1rem;
+    border: 4px solid black;
+    box-sizing: border-box; 
+    overflow-x: hidden;
+  }
+}
+
+@media(min-width:1300px){
+  .Extra_Information_Container {
+    width: 100%; 
+    padding:10% 10%;
+    gap: 1rem;
+    border: 4px solid black;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+}
+*/
