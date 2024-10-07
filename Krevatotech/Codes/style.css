@@ -4,15 +4,31 @@
   box-sizing: border-box;
 }
 
+/*Icon Changer*/
+@media (prefers-color-scheme: dark) {
+  .Company_Icon {
+      content: url("../Images/Icon_White.png");
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .Company_Icon {
+    content: url("../Images/Icon.png");
+  }
+}
+
 body{
-  background-color: burlywood;
+  background-image: url("../Images/Backround3.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   overflow-x:hidden;
 }
 
 nav{
   display: flex;
-  padding-left:12%;
-  padding-right: 12%;
+  padding-left:6%;
+  padding-right: 6%;
   padding-top: 2%;
   padding-bottom: 2%;
   justify-content:space-between; 
@@ -37,8 +53,7 @@ nav img:hover{
 .Navigation-Links{
   flex: 1;
   text-align: right;
-  border: 5px solid black;
-  background-color:cadetblue; 
+  background:transparent; 
 }
 
 .Navigation-Links ul li{
@@ -63,6 +78,15 @@ nav img:hover{
 .Navigation-Links a:hover,
 .Navigation-Links li:hover > a { 
   color: #FA6402; 
+}
+
+.Navigation-Links li .button{
+  border: 2px solid black;
+  box-shadow: 4px 8px 50px rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  font-size: 15px;
+  padding: 4px;
+
 }
 
 
@@ -131,17 +155,14 @@ nav img:hover{
   align-items: center;
 }
 
-@media(max-width:1000px){
-
+@media(max-width:500px){
   nav img{
-    width:120px;
+    width: 120px;
     height: auto;
   }
+}
 
-  nav img:hover{
-    opacity: 0.5;
-  }
-
+@media(max-width:1000px){
 
   .Dekstop_Nav{
     display: none;
@@ -210,16 +231,13 @@ nav img:hover{
   position: absolute;
   bottom: 30px; /* Adjust based on your preference */
   left: 20px; /* Adjust based on your preference */
-  border-left:6px solid black ;
+  border-left:6px solid cadetblue;  ;
   margin-left: 10%;
 }
 
-@media(max-width:800px){
+@media(max-width:425px){
 .Section_Itself img{
-  height: 725px;
-  width: 1000px;
-  max-width: 100%;
-  flex: 1;
+  height: 650px;
 }
 }
 /*
@@ -231,7 +249,6 @@ nav img:hover{
 */
 
   .ProductCategorie_Container {
-    padding-top: 5vh;
     padding-left: 12%;
     padding-right: 12%;
     padding-bottom: 3vh;
@@ -255,7 +272,7 @@ nav img:hover{
     display: block;
     width: 100%;
     height: auto;
-    object-fit: cover; /* Ensures the image covers the width properly */
+    object-fit: cover;
   }
   .ProductCategorie_Description{
     position: absolute;
@@ -263,7 +280,7 @@ nav img:hover{
     left: 0;
     right: 0;
     height: 0;
-    background-color:white;
+    background-color:whitesmoke;
     overflow: hidden;
     width: 100%;
     transition: 0.5s ease;
@@ -286,18 +303,60 @@ nav img:hover{
   }
   .ProductCategorie_Description a:hover{
     color:#FA6402;
+    border-left: 4px solid cadetblue;
   }
 
-
+  .Draw_lines{
+    padding-top: 3vh;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 3vh;
+  }
   .Draw_lines h1 {
     font-family: "Noto Sans Mono", monospace;
     font-size: 35px;
     font-weight: 400;
     color: black;
-    padding-top: 15px;
     text-align: center;
     position: relative;
+    display: inline-block;
   }
+  .Draw_lines h1::before,
+  .Draw_lines h1::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(to left, #FA6402 50%, cadetblue 50%);
+  }
+  
+  .Draw_lines h1::before {
+    left: -160px; 
+    transform: translateY(-50%);
+  }
+  
+  .Draw_lines h1::after {
+    right: -160px;
+    transform: translateY(-50%);
+  }
+@media(max-width:300px){
+  .Draw_lines h1 {
+    font-family: "Noto Sans Mono", monospace;
+    font-size: 25px;
+  }
+}
+
+@media(max-width:900px){
+  .Draw_lines{
+    overflow-x: hidden;
+  }
+  .Draw_lines h1::before,
+  .Draw_lines h1::after {
+   display: none;
+  }
+}
 
   /*Our Beds Gallery*/ 
   /*Beds.html*/
@@ -538,8 +597,8 @@ nav img:hover{
 /*Extra Information on Beds*/
 .Extra_Information_Container{
   padding-top: 5vh;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 17.5%;
+  padding-right: 17.5%;
   padding-bottom: 8vh;
 
   display: flex;
@@ -601,7 +660,7 @@ nav img:hover{
 
 /* Footer Styling */
 .footer {
-  background-color: #24262b;
+  background:transparent;
   padding: 50px 0;
   max-height: auto;
 }
@@ -803,27 +862,222 @@ nav img:hover{
   }
 }
 
+@media (min-width: 901px) and (max-width: 1200px) {
 
-/*
-@media(min-width:1100px){
-  .Extra_Information_Container {
-    width: 100%; 
-    padding: 2rem; 
-    gap: 1rem;
-    border: 4px solid black;
-    box-sizing: border-box; 
-    overflow-x: hidden;
-  }
+.Extra_Information_Container{
+  padding-left: 4%;
+  padding-right: 4%;
+
+  display: flex;
+  flex-direction: row; /* Ensures elements are aligned horizontally */
+  gap:1.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
 }
 
-@media(min-width:1300px){
-  .Extra_Information_Container {
-    width: 100%; 
-    padding:10% 10%;
-    gap: 1rem;
-    border: 4px solid black;
-    box-sizing: border-box;
+#Zoom_Image img{
+  width: 470px;
+  height: auto;
+}
+  
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+
+  .Extra_Information_Container{
+    padding-left: 8%;
+    padding-right: 8%;
+  
+    display: flex;
+    flex-direction: row; /* Ensures elements are aligned horizontally */
+    gap:2.5rem;
+    justify-content: center;
+    align-items: center;
     overflow-x: hidden;
-  }
+}
+    
+}
+  
+
+/*Our Company*/
+.OurCompany{
+  display: flex;
+  flex-direction: column;
+  padding:0 5%;
+  border: 4px solid white;
+}
+.OurCompany .Information{
+  border: 4px solid red;
+}
+
+.OurCompany .Information h1{
+  font-size: 40px;
+  text-align: left;
+  font-weight: 400;
+  color: black;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+
+.OurCompany .Information p{
+  font-size: 20px;
+  text-align: left;
+  font-weight: 200;
+  color: black;
+  padding-bottom: 10px;
+}
+
+.OurCompany .Information img{
+  width: 100%;  
+  height: auto;
+}
+
+@media(max-width:900){
+.OurCompany .Information img{
+  width: 300px;
+  height: auto;
+}
+}
+
+/*Login Platform*/
+.LogIn_PlatformContainer{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 80vh;
+  background-color:transparent;
+  display: flex;
+}
+
+.FormBox{
+  border: 2px solid black;
+  box-shadow:4px 8px 16px cadetblue;
+  width: 750px;
+  height: auto;
+
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.FormContent{
+  flex-grow: 1;
+  max-width:245px;
+  height:auto;
+  padding:10vh 2vh;
+  z-index: 9999;
+}
+
+.FormBox .FormContent h1{
+  padding-bottom:22px; 
+  text-align:center;
+}
+
+.Label_Itself{
+  padding-bottom:1.5rem;
+  position: relative;
+}
+
+.Label_Itself input{
+  color:#fff;
+  background-color:transparent;
+
+  width: 100%;
+  height: auto;
+  padding:4px;
+  outline:none;
+  border:none;
+  border-bottom:2px solid cadetblue;
+
+  padding-right: 20px;/*icon space*/
+}
+
+.Label_Button input{
+  border-radius:25px;
+  background-color:cadetblue;
+  color:#fff;
+  width:100%;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  height:30px;
+}
+
+.Label_Button input:hover{
+  opacity: 0.5;
+}
+
+.Label_Itself label{
+  color: black;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transition: 0.3s ease;
+}
+.Label_Itself input:focus ~ label,
+.Label_Itself input:valid ~ label{
+  color: cadetblue;
+  top: -5px;
+  transform: translateY(-50%);
+}
+
+.Label_Itself i{
+  color: black;
+  top: 0;
+  right: 0;
+  position: absolute;
+  transition: 0.3s ease;
+}
+
+.Label_Itself input:focus ~ i,
+.Label_Itself input:valid ~ i{
+  color: cadetblue;
+}
+
+.ShapeDescription{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  padding: 40px 15px 0px 60px;
+  z-index: 9999;
+}
+
+.ShapeDescription h1{
+  font-size: 32px;
+}
+.ShapeDescription p{
+  font-size: 18px;
+  font-weight: 400;
+}
+.LogIn_PlatformContainer .FormBox .ShapeItself{
+  z-index: 1000;
+  position: absolute;
+  right: 0;
+  top: -5px;
+  height: 600px;
+  width: 850px;
+  background: linear-gradient(15deg,cadetblue,rgb(0, 73, 107));
+  transform: rotate(10deg) skewY(40deg);
+  transform-origin: bottom right;
+}
+
+/*
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000000s ease-in-out 0s;
+    color: white;
 }
 */
