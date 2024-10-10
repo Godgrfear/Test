@@ -17,7 +17,7 @@
         
     if(!empty($_SESSION["username"]) && !empty($_SESSION["password"])){
 
-        header("Destination:HomePage.html");
+        header("Location:HomePage.html");
 
     }
     

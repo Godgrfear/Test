@@ -481,9 +481,12 @@ nav img:hover{
 
 /*Our Inform*/
 .Information_Container{
+
   padding-top: 5vh;
   padding-bottom: 5vh;
   display: flex;
+  flex-direction: column;
+
   gap: 5em;
   justify-content: center;
   align-items: center;
@@ -491,17 +494,39 @@ nav img:hover{
 
 }
 
+.Communication_Box{
+  height:auto;
+  width:70%;
+  height: 600px;
+  border: 4px solid white;
+  gap: 20rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items:start;
+  justify-content: center;
+
+  box-shadow: 2px 24px 8px rgba(255, 255, 255, 0.3);
+}
+
+.Information_Container .Communication_Content h1{
+  padding-bottom: 5vh;
+  font-family: "Noto Sans Mono", monospace;
+  color:#fff;/*Το χρώμα των γραμμάτων*/
+  text-align: center;
+}
+
 .Information_Container .Information{
-  max-width: 600px;
   display: flex;
   flex-direction: column;
-  border: 4px solid red;
 }
 
 .Information_Container .Information h1{
 
   font-family: "Noto Sans Mono", monospace;
   color:#fff;/*Το χρώμα των γραμμάτων*/
+  text-align: center;
+  padding-bottom: 5vh;
 
 }
 
@@ -516,8 +541,8 @@ nav img:hover{
 .Information_Container iframe{
   
   border-radius: 10px;
-  width: 500px;
-  height: 500px;
+  width: 80%;
+  height: 400px;
   opacity: 0.7;
   transition: 0.3s ease-in-out;
 }
@@ -528,9 +553,7 @@ nav img:hover{
 }
 
 /*Socials*/
-
 .Information .socials{
-  border: 4px solid black;
   padding-top: 5px;
   padding-bottom: 5px;
   max-width: auto;
@@ -563,6 +586,108 @@ nav img:hover{
 
 .Information .socials a:active{ 
   opacity: 1.0;
+}
+
+/*Communication Platform*/
+
+.Communication_Label_Itself{
+  padding-bottom:1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.Communication_Label_Itself input{
+  display: flex;
+  flex-direction: column;
+
+  color:#fff;
+  background-color:transparent;
+
+  width: 400px;
+  height: auto;
+  padding:4px;
+  outline:none;
+  border:none;
+  border-bottom:2px solid cadetblue;
+
+  padding-right: 20px;/*icon space*/
+}
+
+.Communication_Label_Itself .TextArea_Label textarea{
+  position: relative;
+  color:#fff;
+  background-color:transparent;
+  width: 400px;
+  height: auto;
+  padding:4px;
+  outline:none;
+  resize: none;
+
+  border: 2px solid #fff;
+  transition: 0.3s ease;
+}
+
+.TextArea_Label{
+  display:flex;
+  flex-direction: column-reverse;
+}
+
+.Communication_Label_Itself  .TextArea_Label textarea:focus,
+.Communication_Label_Itself .TextArea_Label textarea:user-valid{
+  border:2px solid cadetblue;
+}
+
+.Communication_Label_Itself .TextArea_Label label{
+  position: relative;
+  color: black;
+  transition: 0.3s ease;
+}
+
+.Communication_Label_Itself textarea:focus ~ label,
+.Communication_Label_Itself textarea:user-valid ~ label
+.Communication_Label_Itself textarea:valid ~ label{
+  color: cadetblue;
+}
+
+
+.Communication_Label_Button input{
+  border-radius:25px;
+  background-color:cadetblue;
+  color:#fff;
+  width:400px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  height:30px;
+}
+
+.Communication_Label_Button input:hover{
+  opacity: 0.5;
+}
+
+.Communication_Label_Itself label {
+  color: black;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transition: 0.3s ease;
+}
+
+.Communication_Label_Itself input:focus ~ label,
+.Communication_Label_Itself input:user-valid ~ label,
+.Communication_Label_Itself input:valid ~ label{
+  color: cadetblue;
+  top: -5px;
+  transform: translateY(-50%);
+}
+
+
+.Communication_Label_Itself input:-webkit-autofill:hover,
+.Communication_Label_Itself input:-webkit-autofill:focus,
+.Communication_Label_Itself input:-webkit-autofill:valid{
+  -webkit-text-fill-color: #fff;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 @media(max-width:1100px) {
@@ -952,7 +1077,8 @@ nav img:hover{
   display: flex;
 }
 
-.FormBox{
+.Login_FormBox{
+  margin: 10px;
   border: 2px solid black;
   box-shadow:4px 8px 16px cadetblue;
   width: 750px;
@@ -960,31 +1086,30 @@ nav img:hover{
 
   display:flex;
   flex-direction: row;
-  align-items: center;
 
   overflow: hidden;
   position: relative;
 }
 
-.FormContent{
+.Login_FormContent{
   flex-grow: 1;
   max-width:245px;
   height:auto;
   padding:10vh 2vh;
-  z-index: 9999;
+  z-index: 1;
 }
 
-.FormBox .FormContent h1{
+.Login_FormBox .Login_FormContent h1{
   padding-bottom:22px; 
   text-align:center;
 }
 
-.Label_Itself{
+.Login_Label_Itself{
   padding-bottom:1.5rem;
   position: relative;
 }
 
-.Label_Itself input{
+.Login_Label_Itself input{
   color:#fff;
   background-color:transparent;
 
@@ -998,7 +1123,7 @@ nav img:hover{
   padding-right: 20px;/*icon space*/
 }
 
-.Label_Button input{
+.Login_Label_Button input{
   border-radius:25px;
   background-color:cadetblue;
   color:#fff;
@@ -1009,25 +1134,33 @@ nav img:hover{
   height:30px;
 }
 
-.Label_Button input:hover{
+.Login_Label_Button input:hover{
   opacity: 0.5;
 }
 
-.Label_Itself label{
+.Login_Label_Itself label{
   color: black;
   top: 0;
   left: 0;
   position: absolute;
   transition: 0.3s ease;
 }
-.Label_Itself input:focus ~ label,
-.Label_Itself input:valid ~ label{
+
+.Login_Label_Itself input:focus ~ label,
+.Login_Label_Itself input:valid ~ label{
   color: cadetblue;
   top: -5px;
   transform: translateY(-50%);
 }
 
-.Label_Itself i{
+.Login_Label_Itself input:-webkit-autofill:hover,
+.Login_Label_Itself input:-webkit-autofill:focus,
+.Login_Label_Itself input:-webkit-autofill:valid{
+  -webkit-text-fill-color: #fff;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.Login_Label_Itself i{
   color: black;
   top: 0;
   right: 0;
@@ -1035,8 +1168,8 @@ nav img:hover{
   transition: 0.3s ease;
 }
 
-.Label_Itself input:focus ~ i,
-.Label_Itself input:valid ~ i{
+.Login_Label_Itself input:focus ~ i,
+.Login_Label_Itself input:valid ~ i{
   color: cadetblue;
 }
 
@@ -1050,7 +1183,7 @@ nav img:hover{
   flex-direction: column;
   text-align: right;
   padding: 40px 15px 0px 60px;
-  z-index: 9999;
+  z-index:1;
 }
 
 .ShapeDescription h1{
@@ -1060,8 +1193,8 @@ nav img:hover{
   font-size: 18px;
   font-weight: 400;
 }
-.LogIn_PlatformContainer .FormBox .ShapeItself{
-  z-index: 1000;
+.LogIn_PlatformContainer .ShapeItself{
+  z-index: 0;
   position: absolute;
   right: 0;
   top: -5px;
@@ -1072,12 +1205,51 @@ nav img:hover{
   transform-origin: bottom right;
 }
 
-/*
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    transition: background-color 5000000s ease-in-out 0s;
-    color: white;
+@media(max-width:600px){
+
+.Login_FormBox{
+  display:flex;
+  flex-direction: column;
+  
+  align-items: left;
+  text-align: left;
+  justify-content: left;
+
+  overflow: hidden;
+  position: relative;
 }
-*/
+
+.ShapeDescription{
+  padding:1.5vh;
+  position: relative;
+  top: 0;
+  right: 0;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  z-index:1;
+}
+
+.ShapeDescription h1{
+  font-size: 27.5px;
+}
+.ShapeDescription p{
+  font-size: 18px;
+  font-weight: 400;
+}
+.LogIn_PlatformContainer .ShapeItself{
+  z-index: 0;
+  position: absolute;
+  right: 0;
+  top: -5px;
+  height: 600px;
+  width: 850px;
+  background: linear-gradient(15deg,cadetblue,rgb(0, 73, 107));
+  transform: rotate(10deg) skewY(-40deg);
+  transform-origin: bottom top;
+}
+
+
+}
