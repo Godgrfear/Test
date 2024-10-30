@@ -1,0 +1,1292 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+  overflow-x:hidden;
+  background-color:rgb(55,56,57);
+}
+
+nav{
+  display: flex;
+  padding-left:6%;
+  padding-right: 6%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  justify-content:space-between; 
+  align-items: center;
+}
+
+nav img{
+  height: 200px;
+}
+
+nav img:hover{
+    opacity: 0.5;
+}
+
+.Myheader{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/*Συμπεριφορά των link*/
+.Navigation-Links{
+  flex: 1;
+  text-align: right;
+  background:transparent; 
+}
+
+.Navigation-Links ul li{
+  list-style: none;
+  display:inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.Navigation-Links ul li a{
+  font-family: "Noto Sans Mono", monospace;
+  font-size:14px;
+  color:rgb(189, 164, 74);
+  text-decoration: none;
+}
+
+
+.Navigation-Links a {
+  transition: color 0.5s ease-in-out;
+}
+
+.Navigation-Links a:hover,
+.Navigation-Links li:hover > a { 
+  color: grey; 
+}
+
+.Navigation-Links li .button{
+  box-shadow: 0px 0px 50px;
+  border-radius: 15px;
+  font-size: 15px;
+  padding: 4px;
+
+}
+
+
+/* Dropdown container */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color:rgba(0, 0, 0, 0.0);
+  box-shadow: 0 18px 8px rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+  width: 430px; 
+  height: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Category headings */
+.dropdown-menu h2{
+  font-size: 18px;
+  margin-bottom: 5px;
+  color:rgb(189, 164, 74);
+  font-weight: 600;
+  border-bottom: 2.4px solid grey;
+  border-radius: 5px;
+  padding-bottom: 4px;
+}
+
+.dropdown-menu li{
+  margin-bottom: 6px;
+}
+
+.dropdown-menu > li {
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.Phone_Navigation{
+  display: none;
+}
+
+.Phone_Navigation li{
+  text-align: left;
+}
+
+.Hamburger_Toggle{
+  display: none;
+  align-items: center;
+}
+
+@media(max-width:500px){
+  nav img{
+    width: 120px;
+    height: auto;
+  }
+}
+
+@media(max-width:1000px){
+
+  .Dekstop_Nav{
+    display: none;
+  }
+
+  .Phone_Navigation{
+      display: flex;
+      position: fixed;
+      flex-direction: column;
+      inset: 0 0 0 60%;
+      padding:min(20vh,5.5rem) 1rem;
+      background-color:hsl(0 0% 100% / 0.3);
+      backdrop-filter: blur(1rem);
+      z-index: 1000;
+      gap: 1rem;
+      transform: translateX(100%);
+      transition:transform 1s ease-in;
+    }
+
+    .Phone_Navigation[data-visible = "true"]{
+      transform: translateX(0%);
+    }
+    
+    .Hamburger_Toggle{
+      display: block;
+      font-size: 22px;
+      color: black;
+      align-items: center;
+      z-index: 9999;
+    }
+  }
+
+  @media(max-width:600px){
+    .Phone_Navigation{
+    inset: 0 0 0 45%;
+  }
+}
+
+  @media(max-width:300px){
+    .Phone_Navigation{
+    inset: 0 0 0 30%;
+  }
+}
+
+@media(max-height:550px){
+  .Phone_Navigation{
+    overflow-y: scroll;
+  }
+
+}
+
+.Section_Container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:stretch;
+  position: relative;
+}
+
+.Section_Itself img{
+  height: 900px;
+  width: 1000px; /* Set width to auto to maintain aspect ratio */
+  max-width: 100%;
+  flex: 1;
+}
+
+.Section_Itself h1{
+  font-size:30px;
+  font-family: "Agbalumo", system-ui;
+  font-weight: 400;
+  font-style: italic;
+  color:rgb(189, 164, 74);
+  position: absolute;
+  bottom: 30px; /* Adjust based on your preference */
+  left: 20px; /* Adjust based on your preference */
+  border-left:6px solid black;
+  margin-left: 10%;
+}
+
+@media(max-width:425px){
+.Section_Itself img{
+  height: 650px;
+}
+}
+/*
+.slider-wrapper{
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0 70px 55px;
+}
+*/
+
+  .ProductCategorie_Container {
+    padding-left: 12%;
+    padding-right: 12%;
+    padding-bottom: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .ProductCategorie_Box {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Ensures image and description are stacked vertically */
+    justify-content: center; /* Ensures content is centered vertically */
+    margin: 5px;
+    width: 400px;
+    transition: 0.3s ease-in-out;
+  }
+
+  .ProductCategorie_Box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .ProductCategorie_Description{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background-color:whitesmoke;
+    overflow: hidden;
+    width: 100%;
+    transition: 0.5s ease;
+  }
+  .ProductCategorie_Description a{
+    text-decoration: none;
+    position: absolute;
+    font-size: 22px;
+    font-family: "Noto Sans Mono", monospace;
+    font-weight: 600;
+    color:black;
+    margin-left: 15px;
+    margin-top: 7%;
+    padding-left: 1px;
+    border-left: 4px solid black;
+    line-height: 1.5;
+  }
+  .ProductCategorie_Box:hover .ProductCategorie_Description{
+    height: 100px;
+  }
+  .ProductCategorie_Description a:hover{
+    color:#FA6402;
+    border-left: 4px solid cadetblue;
+  }
+
+@media(max-width:450px){
+
+  .ProductCategorie_Description a{
+    font-size: 16px;
+    font-weight: 400;
+    border-left: 4px solid black;
+    line-height: 1.5;
+  }
+
+}
+
+  .Draw_lines{
+    padding-top: 3vh;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 3vh;
+  }
+  .Draw_lines h1 {
+    font-family: "Noto Sans Mono", monospace;
+    font-size: 35px;
+    font-weight: 400;
+    color: black;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+  }
+  .Draw_lines h1::before,
+  .Draw_lines h1::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(to left, #FA6402 50%, cadetblue 50%);
+  }
+  
+  .Draw_lines h1::before {
+    left: -160px; 
+    transform: translateY(-50%);
+  }
+  
+  .Draw_lines h1::after {
+    right: -160px;
+    transform: translateY(-50%);
+  }
+@media(max-width:300px){
+  .Draw_lines h1 {
+    font-family: "Noto Sans Mono", monospace;
+    font-size: 25px;
+  }
+}
+
+@media(max-width:900px){
+  .Draw_lines{
+    overflow-x: hidden;
+  }
+  .Draw_lines h1::before,
+  .Draw_lines h1::after {
+   display: none;
+  }
+}
+
+  /*Our Beds Gallery*/ 
+  /*Beds.html*/
+  .ShowRoum_Container{
+    padding-top: 5vh;
+    padding-left: 24%;
+    padding-right: 24%;
+    padding-bottom: 3vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  .ShowRoum_Gallery{
+    display: inline-block;
+    margin : 5px;
+    width:300px;
+    background-color:rgba(255,255,255,0.6);
+    box-shadow: 0 18px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 15px; 
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: 0.3s ease-in-out;
+  }
+  .ShowRoum_Container .ShowRoum_Gallery .ShowRoum_Description{
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+  }
+
+  .ShowRoum_Gallery img{
+    width:100%;
+    height: 190px;
+    border-radius: 15px;
+    border-bottom: 2px solid black;
+    box-shadow: 0 12px 8px rgba(0, 0, 0, 0.3);
+
+  }
+
+  .ShowRoum_Container .ShowRoum_Gallery:hover{
+    transform: scale(1.1);
+  }
+
+/*Beds Gallery pages*/
+.Button_Container{
+  padding-top:14px ;
+  box-sizing: border-box;
+}
+
+.Button_Container .Button_Visual{
+  padding-left: 4px;
+  padding-right: 4px;
+  text-decoration: none;
+  font-size: 20px;
+  color:black;
+  border: 2px solid rgba(255,255,255,0.6);
+  background-color: rgba(255,255,255,0.3);
+}
+
+.ShowRoum_Container .Button:hover{
+  color:blue;
+  opacity: 0.7;
+  justify-content: center;
+}
+
+@media(max-width:1250px){
+  
+  .ShowRoum_Container{
+    padding-top: 5vh;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 5vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+}
+
+@media(max-width:350px){
+  
+  .ShowRoum_Container{
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+    overflow-x: hidden;
+  }
+
+  .ShowRoum_Gallery{
+    width:100%;
+  }
+}
+
+/*Λίστα με Διαστάσεις*/
+
+.Available_Sizes{
+  padding-top: 10px;
+}
+.Available_Sizes ul{
+  padding-bottom: 20vh;
+}
+.Available_Sizes li{
+  padding: 2px;
+  box-shadow:0px 4px 4px rgba(0, 0, 0, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  list-style: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 200;
+  border-radius: 10px;
+  margin: 4px;
+
+}
+
+.Available_Sizes li:hover{
+  background-color: #FA6402;
+}
+
+/*Our Inform*/
+.Information_Container{
+
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+
+  gap: 5em;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.Communication_Box{
+  width: 1400px;
+  height: auto;
+  padding:  2rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items:flex-start;
+  justify-content: space-evenly;
+}
+
+.Information_Container .Communication_Content h1{
+  padding-bottom: 5vh;
+  font-family: "Noto Sans Mono", monospace;
+
+  text-align: center;
+}
+
+.Information_Container .Information{
+  display: flex;
+  flex-direction: column;
+}
+
+.Information_Container .Information h1{
+
+  font-family: "Noto Sans Mono", monospace;
+  color:black;
+  text-align: center;
+  padding-bottom: 5vh;
+
+}
+
+.Information_Container .Information p{
+
+  font-family: "Noto Sans Mono", monospace;
+  color:#fff;/*Το χρώμα των γραμμάτων*/
+  font-size: 12px;
+
+}
+
+.Information_Container iframe{
+  
+  border-radius: 10px;
+  width: 1400px;
+  height: 400px;
+  opacity: 0.7;
+  transition: 0.3s ease-in-out;
+}
+
+.Information_Container iframe:hover{
+  opacity: 1.0;
+  transform: scale(1.1);
+}
+
+/*Socials*/
+.Information .socials{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  max-width: auto;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.Information .socials a{ 
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid green;
+  border-radius: 50%;
+  font-size: 25px;
+  color: green;
+  text-decoration: none;
+  margin: 5px;
+  transition: 0.5s;
+
+}
+
+.Information .socials a:hover{ 
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.Information .socials a:active{ 
+  opacity: 1.0;
+}
+
+/*Communication Platform*/
+
+.Communication_Label_Itself{
+  padding-bottom:1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.Communication_Label_Itself input{
+  display: flex;
+  flex-direction: column;
+
+  color:#fff;
+  background-color:transparent;
+
+  width: 400px;
+  height: auto;
+  padding:4px;
+  outline:none;
+  border:none;
+  border-bottom:2px solid cadetblue;
+
+  padding-right: 20px;/*icon space*/
+}
+
+.Communication_Label_Itself .TextArea_Label textarea{
+  position: relative;
+  color:#fff;
+  background-color:transparent;
+  width: 400px;
+  height: auto;
+  padding:4px;
+  outline:none;
+  resize: vertical;
+
+  border: 2px solid #fff;
+  transition: 0.3s ease;
+}
+
+.TextArea_Label{
+  display:flex;
+  flex-direction: column-reverse;
+}
+
+.Communication_Label_Itself  .TextArea_Label textarea:focus,
+.Communication_Label_Itself .TextArea_Label textarea:not(:placeholder-shown){
+  border:2px solid cadetblue;
+}
+
+.Communication_Label_Itself .TextArea_Label label{
+  position: relative;
+  color: black;
+  transition: 0.3s ease;
+}
+
+.Communication_Label_Itself .TextArea_Label textarea:focus ~ label,
+.Communication_Label_Itself .TextArea_Label textarea:not(:placeholder-shown) ~ label{
+  color: cadetblue;
+}
+
+
+.Communication_Label_Button input{
+  border-radius:25px;
+  background-color:cadetblue;
+  color:#fff;
+  width:400px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  height:30px;
+}
+
+.Communication_Label_Button input:hover{
+  opacity: 0.5;
+}
+
+.Communication_Label_Itself label {
+  color: black;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transition: 0.3s ease;
+}
+.Communication_Label_Itself input:focus ~ label,
+.Communication_Label_Itself input:not(:placeholder-shown) ~ label{
+  color: cadetblue;
+  top: -5px;
+  transform: translateY(-50%);
+}
+
+/*
+
+.Communication_Label_Itself input:focus ~ label,
+.Communication_Label_Itself input:valid ~ label,
+.Communication_Label_Itself input::content ~ label{
+  color: cadetblue;
+  top: -5px;
+  transform: translateY(-50%);
+}
+*/
+
+.Communication_Label_Itself input:-webkit-autofill:hover,
+.Communication_Label_Itself input:-webkit-autofill:focus,
+.Communication_Label_Itself input:-webkit-autofill:valid{
+  -webkit-text-fill-color: #fff;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media(max-width:1100px) {
+.Information_Container{
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  justify-content:left;
+  align-items: left;
+  text-align: left;
+  overflow-x: hidden;
+}
+
+.Information_Container iframe{
+  
+  border-radius: 10px;
+  width: 100%;
+  height: 600px;
+  opacity: 0.7;
+  transition: 0.3s ease-in-out;
+}
+
+.Information_Container iframe:hover{
+  opacity: 1.0;
+  transform: scale(1.1);
+}
+
+}
+
+/*Extra Information on Beds*/
+.Extra_Information_Container{
+  padding-top: 5vh;
+  padding-left: 17.5%;
+  padding-right: 17.5%;
+  padding-bottom: 8vh;
+
+  display: flex;
+  flex-direction: row; /* Ensures elements are aligned horizontally */
+  gap:5em;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+#Zoom_Image{
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0; /* Prevent shrinking of the image container */
+}
+
+#Zoom_Image img{
+  width: 570px;
+  height: 400px;
+}
+
+#Zoom_Image::after {
+  display: var(--display);
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: var(--url);
+  background-size: 200%;
+  background-position: var(--zoom-x) var(--zoom-y);
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none; /*Prevent interaction with the zoomed image*/
+}
+
+  .Extra_Information_Container .Extra_Information_Description{
+    flex-grow: 1;
+    border: 4px solid black;
+  }
+
+
+.Extra_Information_Container .Extra_Information_Description h1{
+  color: black;
+  font-size: 40px;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.Extra_Information_Container .Extra_Information_Description p{
+  color: black;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.Extra_Information_Description .Lower_Text{
+  font-size: 32px;
+  font-weight:200;
+}
+
+/* Footer Styling */
+.footer {
+  background:transparent;
+  padding: 50px 0;
+  max-height: auto;
+}
+
+.footer img {
+  width: 220px;
+  height: auto;
+}
+
+.footer img:hover {
+  opacity: 0.5;
+}
+
+.Footer_Container {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.Every_Row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Every_Collum {
+  width: 25%;
+  padding:0 30px;
+}
+
+.Every_Collum h4 {
+  font-size: 20px;
+  color: #bbbbbb;
+  margin-bottom: 25px;
+  font-weight: 400;
+  position: relative;
+  display: inline-block; /* Make the h4 only take the space of its content */
+}
+
+.Every_Collum h4::before {
+  background: cadetblue;
+  width: 100%;
+  content: '';
+  height: 2px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+
+.Every_Collum ul li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.Every_Collum ul li a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #bbbbbb;
+  position: relative;
+  display: inline-block;
+}
+
+.Every_Collum ul li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: cadetblue;
+  display: block;
+  transition: width 0.5s ease-in-out;
+}
+
+.Every_Collum ul li a:hover::after {
+  width: 100%;
+}
+
+.Every_Collum p {
+  font-size: 16px;
+  color: #bbbbbb;
+}
+
+.Every_Collum .Footer_Socials a {
+  font-size: 18px;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffff;
+  transition: all 0.5s ease;
+}
+
+.Every_Collum .Footer_Socials a:hover {
+  color: #24262b;
+  background-color: #ffff;
+}
+
+/* Responsive Layout for footer*/
+@media(max-width: 1200px) {
+  .Every_Collum {
+    flex: 1 1 40%; /* Adjust to two columns on medium-sized screens */
+    margin-bottom: 30px;
+  }
+}
+
+@media(max-width: 767px) {
+  .footer img {
+    width: 170px;
+    height: auto;
+  }
+
+  .Every_Collum {
+    flex: 1 1 50%; /* Switch to two columns on smaller screens */
+    margin-bottom: 30px;
+  }
+}
+
+@media(max-width: 574px) {
+  .footer img {
+    width: 140px;
+    height: auto;
+  }
+
+  .Every_Collum {
+    flex: 1 1 100%; /* Switch to one column on very small screens */
+    margin-bottom: 30px;
+  }
+
+  .Footer_Container {
+    padding: 0 10px; /* Ensure padding on very small screens */
+  }
+}
+
+/*
+
+@media(max-width:700px){
+  .Extra_Information_Container{
+  display: flex;
+  flex-direction: column; 
+  gap:0.5rem;
+  justify-content: flex-start;
+  align-items: flex-start; 
+  text-align: left;
+  padding-left: 3%;
+  padding-right: 3%;
+  border: 4px solid black;
+
+}
+
+#Zoom_Image img{
+  width: 320px;
+  height: auto;
+  text-align: left;
+  border: 4px solid black;
+}
+
+.Extra_Information_Description .Lower_Text{
+  font-size: 26px;
+  font-weight:400;
+}
+
+}
+*/
+@media (max-width: 900px) {
+  .Extra_Information_Container {
+    width: 100%;
+    padding: 1rem; 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 4px solid black;
+    box-sizing: border-box; 
+    overflow-x: hidden; 
+  }
+
+  #Zoom_Image {
+    width: 100%; 
+    overflow: hidden; 
+    flex-shrink: 0; 
+  }
+
+  #Zoom_Image img {
+    width: 100%;
+    height: auto; 
+    text-align: left;
+    border: 4px solid black;
+  }
+
+  .Extra_Information_Description {
+    width: 100%;
+    margin: 0; 
+  }
+
+  .Extra_Information_Description .Lower_Text {
+    font-size: 26px;
+    font-weight: 400;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+
+.Extra_Information_Container{
+  padding-left: 4%;
+  padding-right: 4%;
+
+  display: flex;
+  flex-direction: row; /* Ensures elements are aligned horizontally */
+  gap:1.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+#Zoom_Image img{
+  width: 470px;
+  height: auto;
+}
+  
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+
+  .Extra_Information_Container{
+    padding-left: 8%;
+    padding-right: 8%;
+  
+    display: flex;
+    flex-direction: row; /* Ensures elements are aligned horizontally */
+    gap:2.5rem;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+    
+}
+  
+
+/*Our Company*/
+.OurCompany{
+  display: flex;
+  flex-direction: column;
+  padding:0 5%;
+  border: 4px solid white;
+}
+.OurCompany .Information{
+  border: 4px solid red;
+}
+
+.OurCompany .Information h1{
+  font-size: 40px;
+  text-align: left;
+  font-weight: 400;
+  color: black;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+
+.OurCompany .Information p{
+  font-size: 20px;
+  text-align: left;
+  font-weight: 200;
+  color: black;
+  padding-bottom: 10px;
+}
+
+.OurCompany .Information img{
+  width: 100%;  
+  height: auto;
+}
+
+@media(max-width:900){
+.OurCompany .Information img{
+  width: 300px;
+  height: auto;
+}
+}
+
+/*Login Platform*/
+.LogIn_PlatformContainer{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 80vh;
+  background-color:transparent;
+  display: flex;
+}
+
+.Login_FormBox{
+  margin: 10px;
+  border: 2px solid black;
+  box-shadow:4px 8px 16px cadetblue;
+  width: 750px;
+  height: auto;
+
+  display:flex;
+  flex-direction: row;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.Login_FormContent{
+  flex-grow: 1;
+  max-width:245px;
+  height:auto;
+  padding:10vh 2vh;
+  z-index: 1;
+}
+
+.Login_FormBox .Login_FormContent h1{
+  padding-bottom:22px; 
+  text-align:center;
+}
+
+.Login_Label_Itself{
+  padding-bottom:1.5rem;
+  position: relative;
+}
+
+.Login_Label_Itself input{
+  color:#fff;
+  background-color:transparent;
+
+  width: 100%;
+  height: auto;
+  padding:4px;
+  outline:none;
+  border:none;
+  border-bottom:2px solid cadetblue;
+
+  padding-right: 20px;/*icon space*/
+}
+
+.Login_Label_Button input{
+  border-radius:25px;
+  background-color:cadetblue;
+  color:#fff;
+  width:100%;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  height:30px;
+}
+
+.Login_Label_Button input:hover{
+  opacity: 0.5;
+}
+
+
+.Login_Label_Itself label{
+  color: black;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transition: 0.3s ease;
+}
+
+
+.Login_Label_Itself input:focus ~ label,
+.Login_Label_Itself input:not(:placeholder-shown) ~ label{
+  color: cadetblue;
+  top: -5px;
+  transform: translateY(-50%);
+}
+.Login_Label_Itself input:not(:focus) ~ label{
+  color:black;
+}
+
+
+/*
+.Login_Label_Itself input:not(:focus) ~ label{
+  color: black;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transition: 0.3s ease;
+}
+.Login_Label_Itself input:focus ~ label,
+.Login_Label_Itself input:valid:not(:empty) ~ label,
+.Login_Label_Itself input:invalid:not(:empty) ~ label{
+  color: cadetblue;
+  top: -5px;
+  transform: translateY(-50%);
+}
+
+.Login_Label_Itself input:focus ~ label,
+.Login_Label_Itself input:not(:valid):not(:empty) ~ label,
+.Login_Label_Itself input:valid:not(:empty) ~ label {
+  color: cadetblue;
+  top: -5px;
+  transform: translateY(-50%);
+}
+*/
+
+
+
+.Login_Label_Itself input:-webkit-autofill:hover,
+.Login_Label_Itself input:-webkit-autofill:focus,
+.Login_Label_Itself input:-webkit-autofill:valid{
+  -webkit-text-fill-color: #fff;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.Login_Label_Itself i{
+  color: black;
+  top: 0;
+  right: 0;
+  position: absolute;
+  transition: 0.3s ease;
+}
+
+.Login_Label_Itself input:focus ~ i,
+.Login_Label_Itself input:not(:placeholder-shown) ~ i{
+  color: cadetblue;
+}
+
+.ShapeDescription{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  padding: 40px 15px 0px 60px;
+  z-index:1;
+}
+
+.ShapeDescription h1{
+  font-size: 32px;
+}
+.ShapeDescription p{
+  font-size: 18px;
+  font-weight: 400;
+}
+.LogIn_PlatformContainer .ShapeItself{
+  z-index: 0;
+  position: absolute;
+  right: 0;
+  top: -5px;
+  height: 600px;
+  width: 850px;
+  background: linear-gradient(15deg,cadetblue,rgb(0, 73, 107));
+  transform: rotate(10deg) skewY(40deg);
+  transform-origin: bottom right;
+}
+
+@media(max-width:600px){
+
+.Login_FormBox{
+  display:flex;
+  flex-direction: column;
+  
+  align-items: left;
+  text-align: left;
+  justify-content: left;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.ShapeDescription{
+  padding:1.5vh;
+  position: relative;
+  top: 0;
+  right: 0;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  z-index:1;
+}
+
+.ShapeDescription h1{
+  font-size: 27.5px;
+}
+.ShapeDescription p{
+  font-size: 18px;
+  font-weight: 400;
+}
+.LogIn_PlatformContainer .ShapeItself{
+  z-index: 0;
+  position: absolute;
+  right: 0;
+  top: -5px;
+  height: 600px;
+  width: 850px;
+  background: linear-gradient(15deg,cadetblue,rgb(0, 73, 107));
+  transform: rotate(10deg) skewY(-40deg);
+  transform-origin: bottom top;
+}
+
+
+}
